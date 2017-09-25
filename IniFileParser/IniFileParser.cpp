@@ -7,14 +7,25 @@
 
 int main()
 {
-	setlocale(LC_ALL, "English");
-	InFile NewIni("text.txt");
-	map<string, string> section = NewIni.GetSectionInf("Section1");
-	for (auto& it : section) {
-		cout << it.first << "  " << it.second << endl;
+	wstring file, section1, section2, field;
+	//cout << "Enter file name" << endl;
+	//wcin >> file;
+	InFile NewIni(L"text.txt");
+	//cout << "Enter section name" << endl;
+	//wcin >> section1;
+	map<wstring, wstring> section = NewIni.GetSectionInf(L"Section1");
+
+	for (auto it = section.begin(); it != section.end(); ++it) {
+		wcout << (*it).first << "  " << (*it).second << endl; //Вывод ключей и значений
 	}
-	auto obj = NewIni.GetSectionFieldInf("Section1", "tcp");
-	cout << obj << endl;
+	//cout << "Enter section name" << endl;
+	//wcin >> section2;
+	//cout << "Enter field name" << endl;
+	//wcin >> field;
+	wstring obj = NewIni.GetSectionFieldInf(L"Section2", L"tcp");
+	wcout << obj << endl;
 	system("pause");
+
+	return 0;
 }
 
