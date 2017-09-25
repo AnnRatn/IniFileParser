@@ -11,8 +11,8 @@ public:
 		try {
 			return information.find(SecNum)->second;
 		}
-		catch (exception) {
-			cout << "There is no this section";
+		catch(char* ex) {
+			cout << ex << endl;
 		}
 	}
 
@@ -22,8 +22,8 @@ public:
 			map<wstring, wstring> Section = GetSectionInf(SecNum);
 			return Section.find(SecField)->second;
 		}
-		catch (exception) {
-			cout << "There is no this section";
+		catch (char* ex) {
+			cout << ex << endl;
 		}
 	}
 
@@ -67,8 +67,8 @@ public:
 			}
 			information.insert(pair<wstring, map<wstring, wstring>>(SectionName, new_map));
 		}
-		catch (exception ex) {
-			cout << ex.what();
+		catch (char* ex) {
+			cout << ex << endl;
 		}
 	}
 
